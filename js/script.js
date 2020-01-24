@@ -43,10 +43,22 @@ class stack {
     }
 
     removeFirst() {
-      if(this.head && this.head.next){
-        this.head = this.head.next;
-        this.head.back = null;
+      let current = this.head;
+
+      if (this.size === 1) {
+        this.head = null;
+        this.current = null ;
       }
+      else {
+
+    while (current.back && current.back.back) {
+      current = current.back;
+    }
+    current.back = null;
+    this.current = current;
+  }
+
+    this.size--;
 
 
     }
@@ -89,7 +101,7 @@ class stack {
   }
 
   function popStack() {
-    list.removeLast(document.getElementById("put").value);
+    list.removeLast();
     document.getElementById('data').innerHTML = list.printListData();
   }
 
