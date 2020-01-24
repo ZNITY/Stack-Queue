@@ -18,7 +18,7 @@
 
       <div class="display">
         <input type="text" name="" value="" id="put" placeholder="Value">
-        <button type="button" name="button" onclick="addlast()">Add</button>
+        <button id="myBtn" type="button" name="button" onclick="addlast()">Add</button>
       </div>
     <br><br>
     <div class="display">
@@ -39,6 +39,17 @@
     <button class="clear" onclick="clearall()">Clear</button>
 
     </div>
+
+    <script>
+      var input = document.getElementById("put");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("myBtn").click();
+        }
+        
+      });
+    </script>
 
 
   </body>
